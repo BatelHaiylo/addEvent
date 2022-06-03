@@ -104,28 +104,36 @@ function refresh (){
     window.location.reload();
 }
 
+
+
+var inputLastName = document.createElement("input")
+document.body.append(inputLastName)
+inputLastName.type = "text"
+inputLastName.placeholder = "please enter your last name"
+
+var firstNames = document.createElement("input")
+document.body.append(firstNames)
+firstNames.id = "firstName"
+firstNames.type = "text"
+firstNames.placeholder = "please enter your 4 first names"
+
+var listTag =document.createElement("ul")
+document.body.append(listTag)
+listTag.style.listStyle = "none" 
+
+var nameButton = document.createElement("button")
+document.body.append(nameButton)
+nameButton.innerText = "submit"
+nameButton.addEventListener("click" , ()=>{
+    getOrgainInList(firstNamesArray, listTag)
+}) 
+
+var firstNamesArray = []
+
 function getNamesFromUser () {
 
-    var inputLastName = document.createElement("input")
-    document.body.append(inputLastName)
-    inputLastName.type = "text"
-    inputLastName.placeholder = "please enter your last name"
-
-    var firstNames = document.createElement("input")
-    document.body.append(firstNames)
-    firstNames.id = "firstName"
-    firstNames.type = "text"
-    firstNames.placeholder = "please enter your 4 first names"
-
-    var nameButton = document.createElement("button")
-    document.body.append(nameButton)
-    nameButton.innerText = "send"
-    nameButton.addEventListener("click" , ()=>{
-
-    }) 
 
     var firstNamesStr = firstNames.value  
-    var firstNamesArray = []
     var text = ""
     
     for(i = 0; i<firstNamesStr.length; i++){
@@ -138,6 +146,10 @@ function getNamesFromUser () {
         }
     }
     console.log(firstNamesArray)
-
 }
-getNamesFromUser ()
+
+function getOrgainInList (arry, element){
+    for(i = 0; i<arry.length; i++){
+        element.innerHtml += "<li id= '"+element+"_"+i+"'>"+ arry[i] + inputLastName + "</li>";
+    }
+}
