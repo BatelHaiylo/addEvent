@@ -56,6 +56,8 @@ input1.id = "userBirtDate"
 input1.type = "date"
 input1.placeholder = "please enter your date"
 
+var breakLine1 = document.createElement("br")
+document.body.append(breakLine1)
 
 var input2 = document.createElement("input")
 document.body.append(input2)
@@ -63,10 +65,17 @@ input2.id = "userName"
 input2.type = "text"
 input2.placeholder = "please enter your name"
 
+var breakLine2 = document.createElement("br")
+document.body.append(breakLine2)
+
 var button = document.createElement("button")
 document.body.append(button)
 button.innerText = "send"
 button.addEventListener("click" , program)
+
+var breakLine3 = document.createElement("br")
+document.body.append(breakLine3)
+
 
 function program(){
     var todaysDate = new Date ()
@@ -117,9 +126,6 @@ firstNames.id = "firstName"
 firstNames.type = "text"
 firstNames.placeholder = "please enter your 4 first names"
 
-var listTag =document.createElement("ul")
-document.body.append(listTag)
-listTag.style.listStyle = "none" 
 
 var nameButton = document.createElement("button")
 document.body.append(nameButton)
@@ -127,6 +133,11 @@ nameButton.innerText = "submit"
 nameButton.addEventListener("click" , ()=>{
     getOrgainInList(firstNamesArray, listTag)
 }) 
+
+var listTag =document.createElement("ul")
+document.body.append(listTag)
+listTag.style.listStyle = "none" 
+
 
 var firstNamesArray = []
 
