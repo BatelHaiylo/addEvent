@@ -130,25 +130,22 @@ firstNames.placeholder = "please enter your 4 first names"
 var nameButton = document.createElement("button")
 document.body.append(nameButton)
 nameButton.innerText = "submit"
-nameButton.addEventListener("click" , ()=>{
-    getOrgainInList(firstNamesArray, listTag)
-}) 
 
-var listTag =document.createElement("ul")
+var listTag = document.createElement("ul")
 document.body.append(listTag)
-listTag.style.listStyle = "none" 
+// listTag.style.listStyleType = "none" 
 
+nameButton.addEventListener("click" , () => {getOrgainInList (firstNamesArray, listTag)}) 
 
 var firstNamesArray = []
 
 function getNamesFromUser () {
 
-
     var firstNamesStr = firstNames.value  
     var text = ""
     
     for(i = 0; i<firstNamesStr.length; i++){
-        if(firstNamesStr[i] != " " || firstNamesStr[i] == firstNamesStr[firstNamesStr.length-1]){
+        if(firstNamesStr[i] != " " || firstNamesStr[i] == firstNamesStr[(firstNamesStr.length)-1]){
             text += firstNamesStr[i]
         }
         else{
@@ -156,11 +153,16 @@ function getNamesFromUser () {
             text = ""
         }
     }
-    console.log(firstNamesArray)
+    firstNamesArray.push(text)
 }
+function getOrgainInList (arry){
+// function getOrgainInList (arry,element){
 
-function getOrgainInList (arry, element){
-    for(i = 0; i<arry.length; i++){
-        element.innerHtml += "<li id= '"+element+"_"+i+"'>"+ arry[i] + inputLastName + "</li>";
+    getNamesFromUser ()
+    for(var i = 0; i<arry.length; i++){
+        element.innerHtml += "<li>"+ arry[i] +" "+ inputLastName.value + "</li>";
+        // document.body.innerHtml += "<h1>"+ arry[i] +" "+ inputLastName.value + "</h1>";
     }
 }
+
+// document.body.innerHtml += "<h1 id= 'h1_"+i+1+"'>"+ arry[i] +" "+ inputLastName.value + "</h1>";
