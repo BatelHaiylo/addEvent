@@ -175,11 +175,14 @@ function getNamesFromUser() {
 
     var serchValue = searchInputBlock.value;
 
-    for(j=0; j<serchValue.length; i++){
-        if(str.includes(serchValue)){
-            p.innerText += str + '\n';
-         }
-    }
+    searchInputBlock.addEventListener("input", () =>{
+        for(j=0; j<serchValue.length; i++){
+            if(serchValue.includes(str)){
+                p.innerText += str + '\n';
+             }
+        }
+    })
+
 }
 
 
